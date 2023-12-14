@@ -1,15 +1,31 @@
 class UsersController < ApplicationController
 
-def create
-  @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+def new
+  @user = User.new
+end
 
-  if @user.save
-    redirect_to @user
+def create
+  @user = User.new(user_params)
+
+  if
+    @user.save
+    redirect_to new_users_path
 
   else
     render :new, status: :unprocessable_entity
   end
-end                                                                                                                                      
+end
+
+
+private
+
+def user_params
+  params.require(:user).permit(:username, :email, :password)
+end
+
+def edit
+  @user = User.find(params[:id])
+end
 
 
   end

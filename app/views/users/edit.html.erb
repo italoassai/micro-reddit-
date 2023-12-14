@@ -1,0 +1,19 @@
+
+
+
+    <div>
+        <%= form_with model: @user do |form|  %>
+
+    
+        <%= form.label :email%>
+        <%= form.text_field :email %>
+
+        <%= form.label :username%>
+        <%= form.text_field :username%>
+
+        <%= form.label :password%>
+        <%= form.password_field :password%>
+
+        <%= form.submit "Cadastrar"%>
+        <%end%>
+    </div>

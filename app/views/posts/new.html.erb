@@ -1,0 +1,21 @@
+
+ <h1>Novo Post</h1>
+
+
+
+   <%=form_with url:@post do |form| %>
+
+  <%if @post.errors.any?%>
+        <%@post.errors.each do |error|%>
+      <%= error.full_message%>
+            <%end%>
+        <%end%>
+
+    <%=form.text_field :title%>
+     <%=form.label :title%>
+
+    <%=form.text_field :description%>
+     <%=form.label :description%>
+
+     <%= form.submit "Criar Post"%>
+    <%end %>
